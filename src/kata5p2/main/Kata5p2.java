@@ -14,15 +14,15 @@ import kata5p2.view.MailListReaderBD;
 public class Kata5p2 {
 
     public static void main(String[] args) {
-        String file = "email.txt";
-        MailListReader mailReader = new MailListReader();
+        MailListReaderBD mailReader = new MailListReaderBD();
         MailHistogramBuilder histBuilder = new MailHistogramBuilder();
-
-        List<Mail> mails = new ArrayList<Mail>(mailReader.read(file));
+        
+        List<Mail> mails = new ArrayList<>(mailReader.read());
+        
         Histogram histogram = new Histogram();
         histogram = histBuilder.build(mails);
         new HistogramDisplay(histogram).execute();
-
+        
 
     }
 }
